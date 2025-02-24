@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -43,28 +44,46 @@ class MainActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-//        fillList()
+        /*fillList()
 
-//        val btnGoEdit = findViewById<Button>(R.id.gotoEdit)
-//        btnGoEdit.setOnClickListener{
-//            startActivity(Intent(this, Edit::class.java))
-//        }
+        val btnGoEdit = findViewById<Button>(R.id.gotoEdit)
+        btnGoEdit.setOnClickListener{
+            startActivity(Intent(this, Edit::class.java))
+        }*/
 
         auth = FirebaseAuth.getInstance()
 
         val params = intent.extras
 
-//        val btnLogout = findViewById<Button>(R.id.logout)
-//        btnLogout.text = params?.getString("idUser").toString()
-//
-//        btnLogout.setOnClickListener{
-//            auth.signOut()
-//            startActivity(Intent(this, Login::class.java))
-//            finish()
-//        }
+        /*val btnLogout = findViewById<Button>(R.id.logout)
+        btnLogout.text = params?.getString("idUser").toString()
+
+        btnLogout.setOnClickListener{
+            auth.signOut()
+            startActivity(Intent(this, Login::class.java))
+            finish()
+        }*/
 
         readDB()
-    }
+
+        val btnAddMovie = findViewById<FloatingActionButton>(R.id.floatingActionButton)
+        btnAddMovie.setOnClickListener{
+            var movieObj = Movie("New movie","1991", "comedy")
+            myRef.push().setValue(movieObj)
+        }
+
+        var list = findViewById<ListView>(R.id.list)
+        list.setOnItemClickListener{ adapterView, view, i, l ->
+            Toast.makeText(this,data[i].name.toString(), Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this,Edit::class.java)
+                .putExtra("id",data[i].id.toString())
+                .putExtra("name",data[i].name.toString())
+                .putExtra("genre",data[i].genre.toString())
+                .putExtra("year",data[i].year.toString())
+            )
+        }
+
+    } ////// END ON CREATE ///////////
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu,menu)
