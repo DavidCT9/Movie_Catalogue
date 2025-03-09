@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textViewEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30sp"
+            android:layout_marginBottom="30sp"
+            android:layout_weight="0"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:text="Edit"
+            android:textSize="34sp" />
+
+        <EditText
+            android:id="@+id/editName"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editYear"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0"
+            android:ems="10"
+            android:hint="Year"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editGenre"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="30sp"
+            android:layout_weight="0"
+            android:ems="10"
+            android:hint="Genre"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/editMovieBtn"
+            android:layout_width="150dp"
+            android:layout_height="58dp"
+            android:layout_gravity="center"
+            android:layout_margin="5sp"
+            android:layout_weight="0"
+            android:backgroundTint="#073452"
+            android:text="Edit"
+            android:textColor="#FFFFFF"
+            android:textColorLink="#FFFFFF" />
+
+        <Button
+            android:id="@+id/Cancel"
+            android:layout_width="150dp"
+            android:layout_height="58dp"
+            android:layout_gravity="center"
+            android:layout_margin="5sp"
+            android:backgroundTint="#EB132E72"
+            android:text="Cancel"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

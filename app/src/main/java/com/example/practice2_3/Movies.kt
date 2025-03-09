@@ -1,10 +1,10 @@
 package com.example.practice2_3
 
-class Movies(nam: String?, yr: String?, gnr:String?, ids:String) {
-    var name:String? = nam
-    var year:String? = yr
-    var genre:String? = gnr
-    var id:String = ids
-
-
-}
+class Movies(
+    val name: String? = "",
+    val year: String? = "",
+    val genre: String? = "",
+    val id: String = "",
+    val latitude: Double = 0.0,
+    val longitude: Double = 0.0
+)
